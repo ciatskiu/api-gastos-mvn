@@ -18,22 +18,17 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "centrodecusto")
 public class CentroDeCusto {
-    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idCentroDeCusto")
     private Long id;
-
     @Column(nullable = false)
     private String descricao;
-
     @Column(columnDefinition = "TEXT")
     private String observacao;
-
     @ManyToOne
     @JoinColumn(name = "idUsuario")
     private Usuario usuario;
-
     @ManyToMany(mappedBy = "centrosDeCustos")
     @JsonBackReference
     private List<Titulo> titulos;
@@ -77,8 +72,6 @@ public class CentroDeCusto {
     public void setTitulos(List<Titulo> titulos) {
         this.titulos = titulos;
     }
-
-    
 
 }
 
